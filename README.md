@@ -1,4 +1,4 @@
-Note: `splits/` and `httplogs` were generated script.py.
+Note: `splits/` and `httplogs` were generated with script.py.
 
 # Commands used so far
 * Rank files in splits by size
