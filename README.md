@@ -1,3 +1,5 @@
+Note: `splits/` and `httplogs` were generated script.py.
+
 # Commands used so far
 * Rank files in splits by size
 ```console
