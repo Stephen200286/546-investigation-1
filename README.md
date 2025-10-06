@@ -23,3 +23,7 @@ tshark -r 20180905_083022.pcap -Y "http.request" -T fields -e http.host   | sort
 *finding the IP's that have touched the domain Squirldirectory.com and outputted it to a file
 $ tshark -r 20180905_083022.pcap -Y '(http.host == "squirreldirectory.com") || (dns.qry.name == "squirreldirectory.com") || (ssl.handshake.extensions_server_name == "squirreldirectory.com")' -T fields -e ip.src -e ip.dst | tr '\t' '\n' | grep -Eo '([0-9]{1,3}\.){3}[0-9]{1,3}' | sort | uniq -c | sort -rn > squirrel_ips_counts.txt
 ```
+*getting all user agent strings from the ip 172.16.6.14
+tshark -r 20180905_083022.pcap -Y 'ip.addr == 172.16.6.14 && http.request'   -T fields -e frame.time -e ip.src -e ip.dst -e http.host -e http.user_agent   | sed '/^\s*$/d' > ua_from_172.16.6.14.txt
+
+```
